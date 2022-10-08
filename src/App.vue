@@ -1,5 +1,5 @@
 <template>
-  <div>myage</div>
+  <div>age: {{ age }}</div>
 </template>
 
 <script>
@@ -9,9 +9,27 @@ export default {
   },
   data() {
     return {
+      age: 0
     }
   },
+  mounted() {
+    this.age = this.calc()
+  },
   methods: {
+    calc() {
+      const birthday = {
+        year: 1993,
+        month: 11,
+        date: 10
+      }
+      const today = new Date()
+      const thisYearBirthday = new Date(today.getFullYear(), birthday.month - 1, birthday.date)
+      let age = today.getFullYear() - birthday.year
+      if (today < thisYearBirthday) {
+        age--
+      }
+      return age
+    }
   }
 }
 </script>
