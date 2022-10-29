@@ -15,7 +15,7 @@ async function main(browser) {
   const e = await page.evaluate(() => {
     return {
       title: document.title,
-      txt: document.querySelector('div #app div').textContent
+      txt: document.querySelector('#app div').textContent
     };
   });
   assert(e.title === 'myage');
