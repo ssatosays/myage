@@ -17,6 +17,5 @@ async function main(browser) {
       title: document.title
     };
   });
-  console.log(e.title);
-  assert('0' === '1');
+  assert(e.title === 'myage');
 }
