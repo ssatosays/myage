@@ -19,7 +19,5 @@ async function main(browser) {
     };
   });
   assert(e.title === 'myage');
-  console.log('--- debug');
-  console.log(e.txt);
-  console.log('--- debug');
+  assert(e.txt === 'age: 28');
 }
