@@ -1,16 +1,14 @@
 name: daily
 on:
-  push:
-    branches:
-      - dev
-# on:
-#   schedule:
-#     - cron: '00 10 * * *'
+  schedule:
+    - cron: '00 10 * * *'
 jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: master
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
