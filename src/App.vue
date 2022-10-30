@@ -1,5 +1,6 @@
 <template>
-  <div>age: {{ age }}</div>
+  <div id="birthday">birthday: {{ birthday }}</div>
+  <div id="age">age: {{ age }}</div>
 </template>
 
 <script>
@@ -9,6 +10,7 @@ export default {
   },
   data() {
     return {
+      birthday: '1993/11/10',
       age: 0
     }
   },
