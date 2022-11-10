@@ -21,5 +21,5 @@ async function main(browser) {
   });
   assert(e.title === 'myage');
   assert(e.birthday === 'birthday: 1993/11/10');
-  assert(e.age === 'age: 28');
+  assert(e.age === 'age: 29');
 }
