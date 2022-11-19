@@ -3,6 +3,7 @@
     <div id="birthday">birthday: {{ birthday }}</div>
     <div id="today">today: {{ today }}</div>
     <div id="age">age: {{ age }}</div>
+    <div id="requiredDays">required to next level: {{ requiredDays }} days</div>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
       birthday: '',
       today: '',
       age: 0,
+      requiredDays: 0,
       internalData: {
         birthday: {
           year: 1993,
@@ -29,6 +31,7 @@ export default {
     this.birthday = this.getBirthday()
     this.today = this.getToday()
     this.age = this.getAge()
+    this.requiredDays = this.getRequiredDays()
   },
   methods: {
     getBirthday() {
@@ -50,6 +53,18 @@ export default {
         age--
       }
       return age
+    },
+    getRequiredDays() {
+      const birthday = this.internalData.birthday
+      const today = new Date()
+      const thisYearBirthday = new Date(today.getFullYear(), birthday.month - 1, birthday.date)
+      let nextBirthday = null
+      if (today < thisYearBirthday) {
+        nextBirthday = thisYearBirthday
+      } else {
+        nextBirthday = new Date(today.getFullYear() + 1, birthday.month - 1, birthday.date)
+      }
+      return parseInt((nextBirthday - today) / 1000 / 60 / 60 / 24)
     }
   }
 }
